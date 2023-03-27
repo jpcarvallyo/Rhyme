@@ -1,0 +1,25 @@
+{
+  "name": "rhymescheme",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "James Carvallyo",
+  "license": "MIT",
+  "dependencies": {
+    "0g": "0.0.6",
+    "cheerio": "^1.0.0-rc.11",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.4",
+    "pm2": "^5.2.0",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.5"
+  }
+}
