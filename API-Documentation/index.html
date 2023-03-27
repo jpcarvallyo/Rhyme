@@ -9,7 +9,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="css/hightlightjs-dark.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,7 +16,6 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;1,300&family=Source+Code+Pro:wght@300&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/style.css" media="all" />
     <style>
       @charset "utf-8";
 
@@ -740,13 +738,13 @@
           <pre><code class="bash">
 # Here is a curl example
 curl \
--X POST https://1800.fyi/getWord/
+-X GET https://1800.fyi/word/
                 </code></pre>
           <p>
             To get rhymes from desired word you need to make a GET call to the
             following url :<br />
             <code class="higlighted break-word"
-              >http://1800.fyi/getWord/:word</code
+              >http://1800.fyi/word/:word</code
             >
           </p>
           <br />
@@ -1344,7 +1342,7 @@ Result example :
 
       function onScroll() {
         var scroll = window.pageYOffset;
-        console.log("scroll", scroll, elements);
+        // console.log("scroll", scroll, elements);
         for (var i = 0; i < elements.length; i++) {
           var section = elements[i];
           if (scroll <= section.maxHeight) {

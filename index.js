@@ -2,8 +2,11 @@ const express = require("express");
 const cors = require("cors");
 const fs = require("fs");
 const path = require("path");
+const url = require("url");
 const morgan = require("morgan");
 const port = 8000;
+const rp = require("request-promise");
+const cheerio = require("cheerio");
 
 const app = express();
 app.use(cors());
@@ -37,6 +40,7 @@ app.listen(port, () =>
 // Create a dicitonary route
 
 app.get("/fullDictionary", (req, res) => {
+  console.log("fullDictionary success");
   res.json({
     dictionary,
   });
@@ -45,6 +49,7 @@ app.get("/fullDictionary", (req, res) => {
 app.get("/randomWord", async (req, res) => {
   const randomInt = Math.floor(Math.random() * wordList.length - 1);
   const randomWord = wordList[randomInt];
+  const msg = rhymesWithDictionary[randomWord] === undefined ? true : false;
 
   if (rhymesWithDictionary[randomWord] === undefined) {
     rhymesWithDictionary[randomWord] = {
@@ -92,11 +97,10 @@ app.get("/word/:word", async (req, res) => {
   }
 });
 
-app.get("/populateRhymeDictionary", async (req, res) => {
+app.post("/populateRhymeDictionary", async (req, res) => {
   let count = 0;
   for (let key of Object.keys(dictionary)) {
     if (count === 1000) {
-      console.log(Object.keys(rhymesWithDictionary).length);
       await fs.writeFile(
         `${path.join(__dirname, "./resources/")}rhymesWith.json`,
         JSON.stringify(rhymesWithDictionary),
@@ -115,7 +119,6 @@ app.get("/populateRhymeDictionary", async (req, res) => {
     }
 
     count++;
-    console.log(`${count}: ${key}`);
   }
 });
 
@@ -133,7 +136,7 @@ app.get("/urbanDictionaryRandomWord", (req, res) => {
   const randomWord = urbanDictionaryWords[randomInt];
   const meaning = urbanDictionary[randomWord]["meaning"];
   const example = urbanDictionary[randomWord]["example"];
-
+  console.log(randomWord);
   res.json({
     word: randomWord,
     meaning,
@@ -141,6 +144,28 @@ app.get("/urbanDictionaryRandomWord", (req, res) => {
   });
 });
 
+// Fetch Rhymz
+const getRhymz = async (word, res) => {
+  return await rp(
+    `https://www.rhymezone.com/r/rhyme.cgi?Word=${word}&typeofrhyme=perfect&org1=syl&org2=l&org3=y`
+  )
+    .then(async function (html) {
+      const $ = cheerio.load(html);
+      const rhymeArr = $("a.r", html);
+      const rhymesWithArr = [];
+
+      for (let rhyme of rhymeArr) {
+        rhymesWithArr.push(rhyme.children[0].data);
+      }
+      console.log(rhymesWithArr);
+
+      return rhymesWithArr;
+    })
+    .then((data) => data)
+    .catch();
+};
+
 app.get("/", (req, res) => {
+  console.log("success");
   res.sendFile(path.join(__dirname + "/API-Documentation/index.html"));
 });
