@@ -1,5 +1,5 @@
 function myMiddleware(req, res, next) {
-  // Add middleware for authorization
+  // TODO: middleware for authorization
   console.log("Testing the middleware");
   next();
 }

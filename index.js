@@ -22,7 +22,7 @@ app.use(
 // add middleware to router
 app.use(myMiddleware);
 
-// // use the users and products routers
+// // use routers interface and serve static HTML for base URL "/" route
 app.use("/api", routes);
 app.use("/", homePageRouter);
 

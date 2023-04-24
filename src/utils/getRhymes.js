@@ -13,7 +13,6 @@ const getRhymes = async (word) => {
       for (let rhyme of rhymeArr) {
         rhymesWithArr.push(rhyme.children[0].data);
       }
-      console.log(rhymesWithArr);
 
       return rhymesWithArr;
     })

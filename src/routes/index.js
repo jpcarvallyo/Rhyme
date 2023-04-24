@@ -10,7 +10,7 @@ const urbanDictionaryRouter = require("./urbanDictionary/index.js");
 const urbanDictionaryRandomRouter = require("./urbanDictionary/random.js");
 const populateRhymeDictionaryRouter = require("./populateRhymeDictionary");
 
-// use the users and products routers
+// bind url routes with the routers
 router.use("/", homePageRouter);
 router.use("/word", wordRouter);
 router.use("/randomWord", randomWordRouter);
