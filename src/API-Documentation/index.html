@@ -700,6 +700,12 @@
           <li class="scroll-to-link" data-target="content-get-urban-dictionary">
             <a>Get Urban Dictionary</a>
           </li>
+          <li
+            class="scroll-to-link"
+            data-target="content-get-urban-dictionary-random"
+          >
+            <a>Get Random Urban Dictionary Word</a>
+          </li>
           <!-- <li class="scroll-to-link" data-target="content-errors">
                 <a>Errors</a>
             </li> -->
@@ -712,9 +718,9 @@
         <div class="overflow-hidden content-section" id="content-get-started">
           <h1>Get started</h1>
           <pre>
-    API Endpoint
+API Endpoint
 
-    https://1800.fyi/
+https://1800.fyi/api/
                 </pre
           >
           <p>
@@ -738,13 +744,13 @@
           <pre><code class="bash">
 # Here is a curl example
 curl \
--X GET https://1800.fyi/word/
+-X GET https://1800.fyi/api/word/
                 </code></pre>
           <p>
             To get rhymes from desired word you need to make a GET call to the
             following url :<br />
             <code class="higlighted break-word"
-              >http://1800.fyi/word/:word</code
+              >http://1800.fyi/api/word/:word</code
             >
           </p>
           <br />
@@ -981,7 +987,7 @@ Result example :
             To get a random word and corresponding rhymes ou need to make a GET
             call to the following url :<br />
             <code class="higlighted break-word"
-              >http://1800.fyi/randomWord/</code
+              >http://1800.fyi/api/randomWord/</code
             >
           </p>
           <br />
@@ -1028,7 +1034,7 @@ Result example :
             To get our entire full dictionary make a GET call to the following
             url :<br />
             <code class="higlighted break-word"
-              >http://1800.fyi/fullDictionary/</code
+              >http://1800.fyi/api/dictionary/</code
             >
           </p>
           <br />
@@ -1112,7 +1118,7 @@ Result example :
             To get our entire urban dictionary make a GET call to the following
             url :<br />
             <code class="higlighted break-word"
-              >http://1800.fyi/urbanDictionary/</code
+              >http://1800.fyi/api/urbanDictionary/</code
             >
           </p>
           <br />
@@ -1162,6 +1168,29 @@ Result example :
         },
         "...": "..."
     }
+}
+</code></pre>
+        </div>
+        <div
+          class="overflow-hidden content-section"
+          id="content-get-urban-dictionary-random"
+        >
+          <h2>get a random word from our urban dictionary</h2>
+
+          <p>
+            To get a random word from our urban dictionary make a GET call to
+            the following url :<br />
+            <code class="higlighted break-word"
+              >http://1800.fyi/api/urbanDictionary/random</code
+            >
+          </p>
+          <br />
+          <pre><code class="json">
+Result example :
+{
+  "word": "A big fat mad dog",
+  "meaning": "A human being who won’t stop going on about is silver Toyota and the fact that it’s the best car in the world. He is a Richard Hammond wannabe and dresses like a retired nonce",
+  "example": "Jesus Christ Gary stop talking about your crap car you’re just a big fat mad dog"
 }
 </code></pre>
         </div>
@@ -1215,6 +1244,7 @@ Result example :
       </div>
       <div class="content-code"></div>
     </div>
+
     <!-- Github Corner Ribbon - to remove (Ribbon created with : http://tholman.com/github-corners/ )-->
     <!-- <a
       href="https://github.com/ticlekiwi/API-Documentation-HTML-Template"
