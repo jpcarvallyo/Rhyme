@@ -4,9 +4,7 @@ const router = express.Router();
 
 router.get("/", async (req, res) => {
   try {
-    res.sendFile(
-      path.join(__dirname.slice(0, -7) + "/API-Documentation/index.html")
-    );
+    res.sendFile(path.join(__dirname.slice(0, -10) + "public/index.html"));
   } catch (error) {
     res.status(404).json({
       message: `Page is missing, not found: ${error}`,
