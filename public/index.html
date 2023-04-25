@@ -49,7 +49,7 @@
       <div class="content-menu">
         <div class="content-infos">
           <div class="info"><b>Version:</b> 1.0</div>
-          <div class="info"><b>Last Updated:</b> 24th April, 2023</div>
+          <div class="info"><b>Last Updated:</b> 25th April, 2023</div>
         </div>
         <ul>
           <li class="scroll-to-link active" data-target="content-get-started">
@@ -111,7 +111,7 @@ https://1800.fyi/api/
           <pre><code class="bash">
 # Here is a curl example
 curl \
--X GET https://1800.fyi/api/word/
+-X GET https://1800.fyi/api/word/tiger
                 </code></pre>
           <p>
             To get rhymes from desired word you need to make a GET call to the
@@ -349,7 +349,11 @@ Result example :
           id="content-get-random-word"
         >
           <h2>get random word</h2>
-
+          <pre><code class="bash">
+# Here is a curl example
+curl \
+-X GET https://1800.fyi/api/randomWord
+                            </code></pre>
           <p>
             To get a random word and corresponding rhymes ou need to make a GET
             call to the following url :<br />
@@ -396,7 +400,11 @@ Result example :
           id="content-get-full-dictionary"
         >
           <h2>get full dictionary</h2>
-
+          <pre><code class="bash">
+# Here is a curl example
+curl \
+-X GET https://1800.fyi/api/dictionary
+                            </code></pre>
           <p>
             To get our entire full dictionary make a GET call to the following
             url :<br />
@@ -480,7 +488,11 @@ Result example :
           id="content-get-urban-dictionary"
         >
           <h2>get our entire urban dictionary (partial)</h2>
-
+          <pre><code class="bash">
+# Here is a curl example
+curl \
+-X GET https://1800.fyi/api/urbanDictionary
+                            </code></pre>
           <p>
             To get our entire urban dictionary make a GET call to the following
             url :<br />
@@ -543,7 +555,11 @@ Result example :
           id="content-get-urban-dictionary-random"
         >
           <h2>get a random word from our urban dictionary</h2>
-
+          <pre><code class="bash">
+# Here is a curl example
+curl \
+-X GET https://1800.fyi/api/urbanDictionary/random
+                            </code></pre>
           <p>
             To get a random word from our urban dictionary make a GET call to
             the following url :<br />
