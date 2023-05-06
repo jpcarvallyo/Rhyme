@@ -7,6 +7,7 @@ body {
   align-items: center;
   flex-direction: column;
   height: 100vh;
+  text-transform: uppercase;
 }
 
 section {
@@ -23,6 +24,7 @@ section {
 
 section h1 {
   margin-bottom: 0;
+  text-align: center;
 }
 
 section button {
@@ -54,6 +56,12 @@ section button:hover {
 
 section h2 {
   color: #03bc3d;
+  margin-top: 0.2em;
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
 }
 
 input {
@@ -62,12 +70,11 @@ input {
   width: 200px;
   font-family: "Roboto", sans-serif;
   padding-inline-start: 20px;
-  font-size: 20px;
+  font-size: 16px;
   margin-top: 20px;
 }
 
-a {
-  position: absolute;
-  top: 30px;
-  left: 20px;
+section p {
+  margin: 0;
+  font-size: 12px;
 }
