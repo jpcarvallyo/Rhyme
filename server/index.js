@@ -2,9 +2,10 @@ const express = require("express");
 const cors = require("cors");
 const morgan = require("morgan");
 const port = 8000;
+const myMiddleware = require("./src/middleware/index.js");
 const routes = require("./src/routes/index.js");
 const homePageRouter = require("./src/routes/homePage.js");
-const myMiddleware = require("./src/middleware/index.js");
+const dagNodeRouter = require("./src/routes/dagNode.js");
 
 const app = express();
 
@@ -26,6 +27,7 @@ app.use(myMiddleware);
 // // use routers interface and serve static HTML for base URL "/" route
 app.use("/api", routes);
 app.use("/", homePageRouter);
+app.use("/dagnode", dagNodeRouter);
 
 app.listen(port, () =>
   console.log(`Example app listening at http://localhost:${port}`)
