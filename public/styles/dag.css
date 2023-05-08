@@ -103,6 +103,18 @@ div#control-pad {
 div#control-pad h3 {
   margin: 0 20px;
   font-size: 16px;
+  position: relative;
+}
+
+div#control-pad h3.date i.fa-chevron-down {
+  position: absolute;
+  left: -19px;
+  top: 3px;
+}
+
+div#control-pad h3.date i.fa-chevron-down.rotate {
+  transform: rotate(180deg);
+  margin-right: 5px;
 }
 
 div#control-pad h3.active {

@@ -39,25 +39,38 @@ customPriceInput.addEventListener("keydown", function (event) {
 });
 
 document.querySelector("div#control-pad").addEventListener("click", (e) => {
-  // e.preventDefault();
   let type = e.target.dataset.type;
 
   document.querySelectorAll("h3.type").forEach((element) => {
-    console.log(element.classList);
     if (element.classList.contains("active")) {
-      console.log(element, "true");
       element.classList.toggle("active");
     }
   });
 
-  if (e.target.tagName === "H3") {
-    console.log(type);
-    e.target.classList.add("active");
-    produceHistorical(type);
+  if (e.target.tagName === "I") {
+    e.target.parentElement.classList.add("active");
   }
+
+  e.target.classList.add("active");
+
+  // For toggling DATE direction in asc/dsc
+  if (
+    (e.target.tagName === "H3" && e.target.classList.contains("date")) ||
+    e.target.tagName === "I"
+  ) {
+    document.querySelector("i.fa-chevron-down").classList.toggle("rotate");
+    if (e.target.dataset.dir === "dsc") {
+      e.target.dataset.dir = "asc";
+    } else {
+      e.target.dataset.dir = "dsc";
+    }
+    type += `-${e.target.dataset.dir}`;
+  }
+
+  produceHistorical(type);
 });
 
-const produceHistorical = async (type = "date") => {
+const produceHistorical = async (type = "date-asc") => {
   let data = await getDagData(type);
   // Create an array of objects to represent the data for each row
   createTable(data, type);

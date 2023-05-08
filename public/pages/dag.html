@@ -11,6 +11,12 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="shortcut icon" href="../images/constellation.ico" />
     <link rel="stylesheet" href="../styles/dag.css" />
   </head>
@@ -76,13 +82,15 @@
       <section id="dagHistorical">
         <h1>Historical DAG PRICE</h1>
         <div id="control-pad">
-          <h3 class="type active" data-type="date">DATE</h3>
+          <h3 class="type active date" data-type="date" data-dir="asc">
+            <i class="fas fa-chevron-down"></i>DATE
+          </h3>
           <h3 class="type" data-type="dsc">DSC</h3>
           <h3 class="type" data-type="asc">ASC</h3>
         </div>
         <div id="table-container"></div>
       </section>
-    </section>
+    </div>
 
     <script src="../js/utils/index.js" type="module"></script>
     <script src="./js/dag.js" type="module"></script>
