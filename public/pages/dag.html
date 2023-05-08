@@ -54,24 +54,36 @@
       </svg>
     </a>
     <h1>DAG NODE Calculator</h1>
-    <section>
-      <h1>DAG current price</h1>
-      <h2 id="dagCurrentPrice"></h2>
+    <div id="layout">
+      <section>
+        <h1>DAG current price</h1>
+        <h2 id="dagCurrentPrice"></h2>
 
-      <h1>DAG Node price</h1>
-      <p>250k DAG required</p>
-      <h2 id="currentPrice"></h2>
+        <h1>DAG Node price</h1>
+        <p>250k DAG required</p>
+        <h2 id="currentPrice"></h2>
 
-      <h1>Set custom price</h1>
-      <h2 id="customPrice"></h2>
-      <input
-        placeholder="Enter DAG price"
-        type="number"
-        name="customPrice"
-        id="customPriceInput"
-      />
-      <button>Submit</button>
+        <h1>Set custom price</h1>
+        <h2 id="customPrice"></h2>
+        <input
+          placeholder="Enter DAG price"
+          type="number"
+          name="customPrice"
+          id="customPriceInput"
+        />
+        <button>Submit</button>
+      </section>
+      <section id="dagHistorical">
+        <h1>Historical DAG PRICE</h1>
+        <div id="control-pad">
+          <h3 class="type active" data-type="date">DATE</h3>
+          <h3 class="type" data-type="dsc">DSC</h3>
+          <h3 class="type" data-type="asc">ASC</h3>
+        </div>
+        <div id="table-container"></div>
+      </section>
     </section>
+
     <script src="../js/utils/index.js" type="module"></script>
     <script src="./js/dag.js" type="module"></script>
   </body>

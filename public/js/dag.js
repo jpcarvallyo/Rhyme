@@ -1,9 +1,16 @@
-import { getCurrentDagPrice, priceOfDagNode } from "./utils/index.js";
+import {
+  getCurrentDagPrice,
+  priceOfDagNode,
+  getDagData,
+  createTable,
+} from "./utils/index.js";
 const currentPrice = document.querySelector("h2#currentPrice");
 const inputPrice = document.querySelector("input#customPriceInput");
 const customPrice = document.querySelector("h2#customPrice");
 const dagCurrentPrice = document.querySelector("h2#dagCurrentPrice");
 const submitBtn = document.querySelector("button");
+const sectionWTable = document.querySelector("section#dagHistorical");
+const controlPad = document.querySelector("div#control-pad");
 
 const getPrice = async () => {
   const price = await getCurrentDagPrice();
@@ -30,3 +37,30 @@ customPriceInput.addEventListener("keydown", function (event) {
     setCustomPrice();
   }
 });
+
+document.querySelector("div#control-pad").addEventListener("click", (e) => {
+  // e.preventDefault();
+  let type = e.target.dataset.type;
+
+  document.querySelectorAll("h3.type").forEach((element) => {
+    console.log(element.classList);
+    if (element.classList.contains("active")) {
+      console.log(element, "true");
+      element.classList.toggle("active");
+    }
+  });
+
+  if (e.target.tagName === "H3") {
+    console.log(type);
+    e.target.classList.add("active");
+    produceHistorical(type);
+  }
+});
+
+const produceHistorical = async (type = "date") => {
+  let data = await getDagData(type);
+  // Create an array of objects to represent the data for each row
+  createTable(data, type);
+};
+
+produceHistorical();

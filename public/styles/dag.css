@@ -6,7 +6,6 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 100vh;
   text-transform: uppercase;
 }
 
@@ -20,11 +19,19 @@ section {
   max-width: 500px;
   width: 300px;
   border-radius: 10px;
+  margin: 0 40px;
+}
+
+div#layout {
+  display: flex;
+  align-items: stretch;
+  margin-top: 20px;
 }
 
 section h1 {
-  margin-bottom: 0;
+  margin-bottom: 20px;
   text-align: center;
+  text-decoration: underline;
 }
 
 section button {
@@ -77,4 +84,66 @@ input {
 section p {
   margin: 0;
   font-size: 12px;
+}
+
+section#dagHistorical {
+  height: 500px;
+}
+
+div#table-container {
+  overflow: scroll;
+  text-align: center;
+}
+
+div#control-pad {
+  display: flex;
+  margin: 20px;
+}
+
+div#control-pad h3 {
+  margin: 0 20px;
+  font-size: 16px;
+}
+
+div#control-pad h3.active {
+  border-bottom: 2px solid #03bc3d;
+}
+
+tr {
+  margin: 10px;
+}
+th,
+td {
+  text-align: center;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+/* Add spacing between rows */
+tr:not(:last-child) {
+  margin-bottom: 10px;
+}
+tr:nth-child(even) {
+  background-color: #616161;
+}
+/* Add spacing between rows */
+tr:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+@media (max-width: 880px) {
+  div#layout {
+    flex-direction: column;
+    /* margin-top: 0; */
+  }
+
+  section {
+    margin: 0;
+  }
+
+  section#dagHistorical {
+    margin-top: 50px;
+  }
 }
