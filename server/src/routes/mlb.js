@@ -5,12 +5,13 @@ const { default: axios } = require("axios");
 
 router.get("/", async (req, res) => {
   try {
-    const data = await axios
-      .get("http://localhost:9001")
-      .then((resp) => resp.json());
-    console.log(data);
-    // res.json(data);
-    res.json({ message: "hi" });
+    // const data = await axios
+    //   .get("http://localhost:9001")
+    //   .then((resp) => resp.json());
+    const response = await axios.get("http://localhost:9001");
+    const data = response.data;
+
+    res.json({ data });
     // res.json({
     //   addedToDB: rhymesWithDictionary[randomWord] === undefined ? false : true,
     //   word: randomWord,
