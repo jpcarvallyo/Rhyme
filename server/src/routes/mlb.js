@@ -8,8 +8,9 @@ router.get("/", async (req, res) => {
     const data = await axios
       .get("http://localhost:9001")
       .then((resp) => resp.json());
-    res.json(data);
-
+    console.log(data);
+    // res.json(data);
+    res.json({ message: "hi" });
     // res.json({
     //   addedToDB: rhymesWithDictionary[randomWord] === undefined ? false : true,
     //   word: randomWord,
