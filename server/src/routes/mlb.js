@@ -5,7 +5,9 @@ const { default: axios } = require("axios");
 
 router.get("/", async (req, res) => {
   try {
-    const data = await axios.get("localhost:9001/").then((resp) => resp.json());
+    const data = await axios
+      .get("http://localhost:9001")
+      .then((resp) => resp.json());
     res.json(data);
 
     // res.json({
